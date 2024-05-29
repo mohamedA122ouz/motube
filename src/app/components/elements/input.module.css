@@ -1,0 +1,21 @@
+.youtubeSearchBox {
+    width: 80%;
+    height: 5vh;
+    margin: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    outline: none;
+    border: .5px solid #80808059;
+    border-radius: 6vh;
+    font-size: 2vh;
+    padding-left: 2.8vh;
+    padding-right: 2.8vh;
+    box-sizing: border-box;
+    position: relative;
+    font-weight: 100;
+}
+.youtubeSearchBox:focus {
+    box-shadow: 0 0 6px 0 #77C3EC;
+    outline: none;
+    transition: 250ms;
+}
