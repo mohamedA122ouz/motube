@@ -20,8 +20,6 @@ export default function Form() {
         }
     }
     return <form>
-        <input type="text" ref={url} title="Enter Youtube Video URL" placeholder="Enter Url" style={{marginTop: "20px",display: "none"}} required />
-        <MyButton Text={"Download"}/>
-        <MyButton onclick={()=>openfunc()} id="obt" Text={"OPEN"} />
+
     </form>;
 }
