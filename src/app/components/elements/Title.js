@@ -15,8 +15,10 @@ export default function Title({ editableTitle, TitleText, colorArray }) {
     const quickMsg = useMemo(() => { return { working: false, mouseWentOut: true } }, []);
     useEffect(() => {
         message("YOUTUBE").then(
-            ()=>{
-                quickMessage("DISCLAIMER!! the advices shown is random and may be not true")
+            () => {
+                quickMsg.working = true;
+                quickMessage("DISCLAIMER!! the advices shown is random and may be not true").then(() => quickMsg.working = false);
+
             }
         );
     }, []);
@@ -34,7 +36,7 @@ export default function Title({ editableTitle, TitleText, colorArray }) {
         quickMsg.working = false;
     }
 
-    return <h1 className="label" onTouchStart={() => { if (!quickMsg.working) {getData().then(result=>quickMessage(result.slip.advice));; quickMsg.working = true; } }} onMouseLeave={() => { quickMsg.mouseWentOut = true; }} onMouseOver={() => { if (!quickMsg.working && quickMsg.mouseWentOut) {getData().then(result=>quickMessage(result.slip.advice));; quickMsg.working = true; quickMsg.mouseWentOut = false; } }}>
+    return <h1 className="label" onTouchStart={() => { if (!quickMsg.working) { getData().then(result => quickMessage(result.slip.advice));; quickMsg.working = true; } }} onMouseLeave={() => { quickMsg.mouseWentOut = true; }} onMouseOver={() => { if (!quickMsg.working && quickMsg.mouseWentOut) { getData().then(result => quickMessage(result.slip.advice));; quickMsg.working = true; quickMsg.mouseWentOut = false; } }}>
         {data.split('').map((el, i) => {
             return <span key={"spanTitle" + i} style={{ color: availableColors[i % availableColors.length] }}>{el}</span>;
         })}
