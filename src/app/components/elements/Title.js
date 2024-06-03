@@ -9,25 +9,45 @@ async function getData() {
     console.log(data);
     return data;
 }
-export default function Title({ editableTitle, TitleText, colorArray }) {
+let screenX;
+export default function Title({ addedClass, editableTitle, TitleText, colorArray }) {
     let availableColors = colorArray || ["#3F7EE8", "#DE4032", "#EEB205", "#319F4F"];
     let [data, updater] = useState(() => TitleText || "Youtbe");
+    let forbiddedWords = ["dick", "fuck", "shit"];
+    let bestTextRem = screenX * (5 / 1280);
     const quickMsg = useMemo(() => { return { working: false, mouseWentOut: true } }, []);
     useEffect(() => {
+        screenX = 1280;
         message("YOUTUBE").then(
             () => {
                 quickMsg.working = true;
-                quickMessage("DISCLAIMER!! the advices shown is random and may be not true").then(() => quickMsg.working = false);
-
+                quickMessage("DISCLAIMER!! The advices shown is random and may not necessary useful").then(() => quickMsg.working = false);
             }
         );
     }, []);
-
+    useEffect(() => {
+        screenX = window.innerWidth;
+    }, [data]);
     function updateByTime(text) {
         return typingEffect(updater, text);
     }
     function message(text) {
-        return updateByTime(text);
+        console.log("text");
+        if (text) {
+            if (text.toLowerCase().includes("sex")) {
+                getData().then(result => quickMessage(result.slip.advice));
+                return;
+            }
+            forbiddedWords.forEach(el => {
+                if (text.toLowerCase().includes(el)) {
+                    let i = el.split("");
+                    i[2] = "*";
+                    i = i.join("");
+                    text = text.replace(new RegExp(el, "ig"), i);
+                }
+            })
+            return updateByTime(text);
+        }
     }
     async function quickMessage(text) {
         await message(text);
@@ -36,9 +56,9 @@ export default function Title({ editableTitle, TitleText, colorArray }) {
         quickMsg.working = false;
     }
 
-    return <h1 className="label" onTouchStart={() => { if (!quickMsg.working) { getData().then(result => quickMessage(result.slip.advice));; quickMsg.working = true; } }} onMouseLeave={() => { quickMsg.mouseWentOut = true; }} onMouseOver={() => { if (!quickMsg.working && quickMsg.mouseWentOut) { getData().then(result => quickMessage(result.slip.advice));; quickMsg.working = true; quickMsg.mouseWentOut = false; } }}>
+    return <h1 className={"label " + addedClass} onTouchStart={() => { if (!quickMsg.working) { getData().then(result => quickMessage(result.slip.advice));; quickMsg.working = true; } }} onMouseLeave={() => { quickMsg.mouseWentOut = true; }} onMouseOver={() => { if (!quickMsg.working && quickMsg.mouseWentOut) { getData().then(result => quickMessage(result.slip.advice));; quickMsg.working = true; quickMsg.mouseWentOut = false; } }}>
         {data.split('').map((el, i) => {
-            return <span key={"spanTitle" + i} style={{ color: availableColors[i % availableColors.length] }}>{el}</span>;
+            return <span key={"spanTitle" + i} className={(data.length >= 50 ? "longText" : data.length >= 20 ? "mediumText" : "")} style={{ position: "relative", color: availableColors[i % availableColors.length] }}>{el}</span>;
         })}
     </h1>
 

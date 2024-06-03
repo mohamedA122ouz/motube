@@ -2,7 +2,7 @@ footer {
     width: 100%;
     padding:10px;
     background-color: rgba(131, 131, 131, 0.284);
-    position: absolute;
+    /* position: absolute; */
     bottom: 0px;
     display: flex;
     gap: 15px;

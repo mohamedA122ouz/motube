@@ -1,9 +1,15 @@
-/* span{
-    animation: 1000ms ease-in-out forwards change 100;
-}
-@keyframes change {
-
-} */
 .label{
     cursor: grab;
+    transition: 600ms ease-in-out;
+}
+.label>span{
+    font-size: calc(((4 / 1280 * 100vw) + 3rem));
+    transition: 600ms ease-in-out;
+    font-weight: 800;
+}
+.label>span.mediumText{
+    font-size: calc(((4 / 1280 * 100vw) + 2rem));
+}
+.label>span.longText{
+    font-size: calc(((4 / 1280 * 100vw) + 1.5rem));
 }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -12,14 +13,23 @@ body {
   margin: 0;
   padding: 0;
 }
+main{
+  position: relative;
+  /* left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%); */
+  margin: auto;
+  height: 95%;
+}
 h1 {
-  font-size: 2rem;
   text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   user-select: none;
 }
 * {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-seriff;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
   box-sizing: border-box;
 }
 iframe {
@@ -40,20 +50,3 @@ iframe {
       transform: rotate(360deg);
   }
 }
-/*
-.duration {
-    display : block;
-    position : absolute;
-    right : 0px;
-    bottom : 22px;
-    font-size : 1vw;
-    z-index : 12;
-    background-color : black;
-    opacity : 70%;
-    height: max-content;
-    width : max-content;
-    padding : 1%;
-    border-radius:  0.5vw;
-}
-
-*/

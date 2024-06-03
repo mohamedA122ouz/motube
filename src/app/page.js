@@ -8,35 +8,51 @@ import Title from "./components/elements/Title";
 import Links from "./components/elements/links";
 import MyButton from "./components/elements/myButton";
 import Form from "./components/elements/form";
-import BAR from "./components/elements/BAR";
-import getdata,{dtOutput} from "./components/func/dataHandler";
+import getdata, { dtOutput } from "./components/func/dataHandler";
 import VideoCard from "./components/elements/videoCard";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+const inputData = {current:""};
+
+
 export default function Home() {
-  let ref = useRef(()=>null);
-  let [results,update] = useState(()=>null);
-  async function callData(){
-    let url = `https://youtube-6rrj.onrender.com/search?q=${ref.current.value}`;
-    let data = await getdata(url);
-    data = await dtOutput(data);
-    console.log(data);
-    update(data);
-    // data = null;
-    console.log(results);
-    return false;
+  const router = useRouter();
+  let ref = useRef(() => null);
+  let [results, update] = useState(() => null);
+  async function navigate() {
+    router.push(`./components/pages/listItems?data=${ref.current.value}`);
   }
-  return (
+  function openfunc() {
+    var URLButtonText = url.current.value;
+    let checker = [];
+    'https://www.youtube.com/'
+    checker = URLButtonText.split('/')
+    if (checker[2] == 'www.youtube.com') {
+      var videoCode2 = [];
+      videoCode2 = URLButtonText.split('&');
+      var videoCode = [];
+      videoCode = videoCode2[0].split('=');
+      openiframe("openIframe", videoCode[1]);
+    }
+    else if (checker[2] == "youtu.be") {
+      openiframe("openIframe", checker[3]);
+    }
+  }
+  function download() {
+    alert("SERVER ERROR");
+  }
+  function open() {
+    console.log("waiting to add");
+  }
+  return (<>
     <main className={styles.main}>
-      <Title TitleText={"MOTUBE"} editableTitle={"YOUTUBE"} ></Title>
-      <Input onSubmit={callData} placeholder={"Search Youtube"} ref={ref} />
-      <BAR/>
-      {(function (){
-        if(results){
-          for(let i = 0;i<results.videoID;i++){
-            <VideoCard index={i} thumbnail={results.thumbnails[i].defualt} vindex ={i} videoTitle ={results.videoTitle[i]} date ={results.duration[i]} channel ={results.channelTitle[i]} imgTh ={results.channelImg[i]} imgThName ={results.channelTitle[i]} />
-          }
-        }
-      })()}
-      <Footer />
+      <div>
+        <Title TitleText={"MOTUBE"} editableTitle={" YOUTUBE"} ></Title>
+        <Input  onSubmit={navigate}  placeholder={"Search Youtube"} ref={ref} />
+        <Links download={download} open={open} />
+      </div>
     </main>
+    <Footer />
+  </>
   );
 }
