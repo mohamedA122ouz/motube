@@ -24,3 +24,19 @@ footer>.copyRight{
     opacity: 70%;
     width: 100%;
 }
+.svg:hover>path{
+    color:#525252 !important;
+}
+.svg>path{
+    color:#000000 !important;
+    width: 45px;
+    height: 45px;
+    transition: 350ms;
+}
+.links{
+    display: flex;
+    gap: 10px;
+}
+.black{
+    color:black;
+}

@@ -7,6 +7,7 @@ import Input from "../../elements/input";
 import "./editedStyles.css";
 import "./cardLoadingAnimation.css";
 import VideoCard from "../../elements/videoCard";
+import Footer from "../../elements/footer";
 async function calldata(input) {
     let url = `https://youtube-6rrj.onrender.com/search?q=${encodeURI(input)}`;
     let data = await getdata(url);
@@ -47,15 +48,12 @@ export default function ListItemPage() {
                 }
                 else{
                     for(let i in youtubeDt.videoTitle){
-                        console.log(i);
-                        console.log(youtubeDt.thumbnail[i]);
-                        temp.push(<VideoCard index={i} thumbnail={youtubeDt.thumbnail[i]} vindex={i} videoTitle={youtubeDt.videoTitle[i]} date={youtubeDt.duration[i]} channel={youtubeDt.channelTitle[i]} imgTh={youtubeDt.channelImg[i]} imgThName={youtubeDt.channelTitle[i]} />);
+                        temp.push(<VideoCard index={i} thumbnail={youtubeDt.thumbnail[i]} vindex={i} videoTitle={youtubeDt.videoTitle[i]} date={youtubeDt.date[i]} duration={youtubeDt.duration[i]} channel={youtubeDt.channelTitle[i]} imgTh={youtubeDt.channelImg[i]} imgThName={youtubeDt.channelTitle[i]} />);
                     }
                     return temp;
                 }
             })()
         }
-        
-        <div>test</div>
+        <Footer/>
     </>;
 }
