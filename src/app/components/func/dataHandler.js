@@ -96,6 +96,12 @@ async function dtOutput(data) {
     }
     return youtubeDt;
 }
+async function calldata(input) {
+    let url = `https://youtube-6rrj.onrender.com/search?q=${encodeURI(input)}`;
+    let data = await getdata(url);
+    data = await dtOutput(data);
+    return data;
+}
 
 export default getdata;
-export {showError,dtOutput};
+export {showError,dtOutput,calldata};

@@ -2,6 +2,7 @@
     height: calc(((4 / 1280 * 100vw) + 2.5rem));
     overflow: hidden;
     margin: 10px;
+    width: auto;
 }
 
 .label.small>span {
@@ -11,6 +12,7 @@
     width: 100%;
     margin-left: 2%;
     margin-right: 2%;
+    margin:0;
 }
 .header{
     display:grid;
@@ -25,4 +27,12 @@
 }
 .margin{
     margin: 10vh;
+}
+@media (max-width:960px){
+    .header{
+        grid-template-columns: 22% 68% 10%;
+    }
+    .label.small>span {
+        font-size: calc(((4 / 1280 * 100vw) + 0.8rem)) !important;
+    }
 }
