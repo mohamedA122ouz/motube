@@ -1,10 +1,8 @@
 "use client"
-import { useRouter, useSearchParams } from "next/navigation"
-import ListItemPage from "../listItems/page";
+import { useSearchParams } from "next/navigation"
 import VideoCards from "../listItems/vidoeCards";
 import "./page.css";
-export default function videoOpener() {
-    let router = useRouter();
+export default function VideoOpener() {
     let parameters = useSearchParams();
     let videoID = parameters.get("id");
     return (<>
