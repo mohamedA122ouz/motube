@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./videoCard.css";
 export default function VideoCard({ index, thumbnail, vindex, videoTitle, duration, date, channel, imgTh, imgThName, onclick, loadingClass }) {
     return <div className={"details " + loadingClass} onClick={onclick}>
@@ -10,7 +11,8 @@ export default function VideoCard({ index, thumbnail, vindex, videoTitle, durati
                 </svg>
             </div>
             <div className={"v" + vindex + " duration"}>{duration}</div>
-            <img src={thumbnail} alt={videoTitle} />
+            {/* <Image src={thumbnail} alt={videoTitle} width={400} height={225}/> */}
+            <img src={thumbnail} alt={videoTitle}/>
         </div>
         <div className="text">
             <span className="vTitle">
@@ -20,7 +22,8 @@ export default function VideoCard({ index, thumbnail, vindex, videoTitle, durati
             <span className="publishTime">{date}</span>
             <br />
             <div className="channelDetails">
-                <img src={imgTh} alt={imgThName} />
+                {/* <Image src={imgTh} alt={imgThName} width={50} height={50}/> */}
+                <img src={imgTh} alt={imgThName}/>
                 <span className="channelName">{channel}</span>
             </div>
 
