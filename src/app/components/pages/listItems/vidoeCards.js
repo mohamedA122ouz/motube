@@ -21,14 +21,14 @@ export default function VideoCards({ currentID }) {
                 let temp = [];
                 if (youtubeDt === null) {
                     for (let i = 0; i < 10; i++) {
-                        temp.push(<VideoCard loadingClass={"loading"} />);
+                        temp.push(<VideoCard key={i} loadingClass={"loading"} />);
                     }
                     return temp;
                 }
                 else {
                     for (let i in youtubeDt.videoTitle) {
                         if (decodeURI(currentID) != youtubeDt.videoID[i])
-                            temp.push(<Link href={{ pathname: "./videoOpener/", query: { id: youtubeDt.videoID[i], data: data } }}><VideoCard index={i} thumbnail={youtubeDt.thumbnail[i]} vindex={i} videoTitle={youtubeDt.videoTitle[i]} date={youtubeDt.date[i]} duration={youtubeDt.duration[i]} channel={youtubeDt.channelTitle[i]} imgTh={youtubeDt.channelImg[i]} imgThName={youtubeDt.channelTitle[i]} /></Link>);
+                            temp.push(<Link key={youtubeDt.videoID[i]} href={{ pathname: "./videoOpener/", query: { id: youtubeDt.videoID[i], data: data } }}><VideoCard index={i} thumbnail={youtubeDt.thumbnail[i]} vindex={i} videoTitle={youtubeDt.videoTitle[i]} date={youtubeDt.date[i]} duration={youtubeDt.duration[i]} channel={youtubeDt.channelTitle[i]} imgTh={youtubeDt.channelImg[i]} imgThName={youtubeDt.channelTitle[i]} /></Link>);
                     }
                     return temp;
                 }

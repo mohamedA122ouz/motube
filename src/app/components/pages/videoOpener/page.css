@@ -1,0 +1,16 @@
+iframe{
+    width: 100vw;
+    height: 40vw;
+    margin: 0px 0px;
+    z-index: 4;
+}
+.cardsContainer{
+    transition: 350ms;
+}
+@media (max-width:960px) {
+    iframe{
+        width: 100vw;
+        height: 55vw;
+        margin: 0px 0px;
+    }
+}
