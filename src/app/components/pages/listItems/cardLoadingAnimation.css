@@ -19,17 +19,7 @@
     height: 50px;
 }
 
-@keyframes makeLoading{
-    from{
-        background: rgba(128, 128, 128, 0.5);
-    }
-    50%{
-        background: rgba(128, 128, 128, 0.765);
-    }
-    to{
-        background: rgba(128, 128, 128, 0.5);
-    }
-}
+
 @media (max-width:960px){
     .loading>.text>.vTitle,.loading>.text>.publishTime,.loading>.text>.channelDetails>img,.loading>.text>.channelDetails>.channelName{
         margin-top: 10px;

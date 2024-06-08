@@ -40,6 +40,7 @@ iframe {
   width: 60vw;
   min-height: 177px;
   height: 35vw;
+  background-color: black;
 }
 
 @keyframes loading {
@@ -48,5 +49,16 @@ iframe {
   }
   to {
       transform: rotate(360deg);
+  }
+}
+@keyframes makeLoading{
+  from{
+      background: rgba(128, 128, 128, 0.5);
+  }
+  50%{
+      background: rgba(128, 128, 128, 0.765);
+  }
+  to{
+      background: rgba(128, 128, 128, 0.5);
   }
 }

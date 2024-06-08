@@ -3,6 +3,7 @@ iframe{
     height: 40vw;
     margin: 0px 0px;
     z-index: 4;
+    animation: makeLoading 1100ms infinite ease;
 }
 .cardsContainer{
     transition: 350ms;

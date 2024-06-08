@@ -3,6 +3,7 @@ import Link from "next/link";
 import VideoCard from "../../elements/videoCard";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import "./cardLoadingAnimation.css";
 import { calldata } from "../../func/dataHandler";
 import "./videoCards.css";
 export default function VideoCards({ currentID }) {

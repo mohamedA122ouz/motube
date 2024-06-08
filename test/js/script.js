@@ -185,7 +185,7 @@ function openiframe(i, vCode) {
     if (i >= 0) {
         if ((youtubeDt.videoID[i]) != undefined) {
             showloading();
-            iframe = '<iframe id="waiting" src="https://www.youtube.com/embed/' + youtubeDt.videoID[i] + '"?rel="0" frameborder="0" allowfullscreen></iframe>';
+            iframe = '<iframe id="waiting" src="https://www.youtube.com/embed/' + youtubeDt.videoID[i] + '"?rel="0" frameBorder="0" allowfullscreen></iframe>';
             document.querySelector("#videosContainer").innerHTML = iframe + '<br>' + ' <button style="display:block;"  class="down dbt"><span id="download">Download</span></button>' + "<hr>" + totalHtml;
             var redirect = document.createElement('a');
             redirect.href = "#openplace";
@@ -216,7 +216,7 @@ function openiframe(i, vCode) {
     }
     else if (i == "openIframe" && vCode) {
         showloading();
-        iframe = '<iframe id="waiting" style="display:block;" src="https://www.youtube.com/embed/' + vCode + '"?rel="0" frameborder="0" allowfullscreen></iframe>';
+        iframe = '<iframe id="waiting" style="display:block;" src="https://www.youtube.com/embed/' + vCode + '"?rel="0" frameBorder="0" allowfullscreen></iframe>';
         document.querySelector("#videosContainer").innerHTML = iframe + "<hr>";
     }
     processDuration("show");
