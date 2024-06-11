@@ -53,8 +53,9 @@ async function showError(status) {
 async function dtOutput(data) {
     console.log(data);
     let youtubeDt = {};
-    if(data && data.items.length === 0){
-        showError(customError);
+    if(data && !data.items){
+        alert(customError);
+        // showError(customError);
     }
     else{
         youtubeDt.thumbnail = [];
@@ -96,12 +97,12 @@ async function dtOutput(data) {
     }
     return youtubeDt;
 }
-async function calldata(input) {
-    let url = `https://youtube-6rrj.onrender.com/search?q=${encodeURI(input)}`;
+async function calldata(input,endPoint) {
+    endPoint = endPoint==="null"?null:endPoint==="undefine"?undefined:endPoint;
+    let url = `https://youtube-6rrj.onrender.com/${endPoint||"search"}?q=${encodeURI(input)}`;
     let data = await getdata(url);
     data = await dtOutput(data);
     return data;
 }
 
-export default getdata;
-export {showError,dtOutput,calldata};
+export { getdata,showError,dtOutput,calldata};

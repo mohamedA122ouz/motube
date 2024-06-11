@@ -1,7 +1,7 @@
 import Image from "next/image";
 import "./videoCard.css";
-export default function VideoCard({ index, thumbnail, vindex, videoTitle, duration, date, channel, imgTh, imgThName, onclick, loadingClass }) {
-    return <div className={"details " + loadingClass} onClick={onclick}>
+export default function VideoCard({ index, thumbnail, vindex, videoTitle, duration, date, channel, imgTh, imgThName, onclick, currentClass,imageClass }) {
+    return <div className={"details " + currentClass} onClick={onclick}>
         <div className="thumbnail">
             <div style={{ display: "none" }} className={"listsign" + index}>
                 <svg style={{ color: "white" }}
@@ -12,7 +12,7 @@ export default function VideoCard({ index, thumbnail, vindex, videoTitle, durati
             </div>
             <div className={"v" + vindex + " duration"}>{duration}</div>
             {/* <Image src={thumbnail} alt={videoTitle} width={400} height={225}/> */}
-            <img src={thumbnail} alt={videoTitle}/>
+            <img src={thumbnail} alt={videoTitle} className={imageClass?imageClass:""}/>
         </div>
         <div className="text">
             <span className="vTitle">

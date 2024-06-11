@@ -1,3 +1,4 @@
+
 class Emotion {
     static interval = null;
     static emojies = {
@@ -90,7 +91,7 @@ class Emotion {
     }
     static stopLoadingemoji(emoji) {
         return new Promise((acc, rej) => {
-            if (interval !== null) {
+            if (this.interval !== null) {
                 let container = document.querySelector("#videosContainer");
                 clearInterval(interval);
                 interval = null;

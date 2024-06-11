@@ -5,6 +5,7 @@ import Input from "../elements/input";
 import { useEffect, useRef } from "react";
 import "./listItems/editedStyles.css";
 import Footer from "../elements/footer";
+import Link from "next/link";
 
 export default function Layout({ children }) {
     let router = useRouter();
@@ -34,7 +35,9 @@ export default function Layout({ children }) {
     }, []);
     return <>
         <div className="header" ref={header}>
-            <Title addedClass={"small"} editableTitle={" Youtube"} />
+            <Link href={"../../../"} >
+                <Title addedClass={"small"} editableTitle={" Youtube"} />
+            </Link>
             <Input addedClass={"small"} placeholder={data} onSubmit={navigate} ref={ref} />
         </div>
         <div className="margin" ref={ref2}></div>
