@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation"
 import VideoCards from "../listItems/vidoeCards";
 import "./page.css";
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 export default function VideoOpener() {
     let parameters = useSearchParams();
     let ref = useRef(() => null);
@@ -27,14 +27,14 @@ export default function VideoOpener() {
         }
     });
     let videoID = parameters.get("id");
-    return (<>
-        <div ref = {ref2} className="frameDetails">
-            <iframe ref = {ref} key="fixed" src={"https://www.youtube.com/embed/" + videoID + `?rel="0"`} frameBorder="0" allowFullScreen={true} />
+    return (<Suspense >
+        <div ref={ref2} className="frameDetails">
+            <iframe ref={ref} key="fixed" src={"https://www.youtube.com/embed/" + videoID + `?rel="0"`} frameBorder="0" allowFullScreen={true} />
             <img></img>
             <p>here is video details</p>
         </div>
         <div className="cardsContainer">
             <VideoCards currentID={videoID}></VideoCards>
         </div>
-    </>)
+    </Suspense>)
 }
