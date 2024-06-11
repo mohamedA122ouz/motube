@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // images:{
-    //     domains:[""]
-    // }
+    experimental: {
+        missingSuspenseWithCSRBailout: false,
+    },
 };
-
 export default nextConfig;

@@ -2,7 +2,7 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import Title from "../elements/Title";
 import Input from "../elements/input";
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import "./listItems/editedStyles.css";
 import Footer from "../elements/footer";
 import Link from "next/link";
@@ -42,7 +42,7 @@ export default function Layout({ children }) {
         </div>
         <div className="margin" ref={ref2}></div>
         <div className="layoutAdded">
-            {children}
+            <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
         </div>
         <Footer />
     </>

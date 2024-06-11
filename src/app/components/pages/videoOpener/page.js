@@ -27,7 +27,7 @@ export default function VideoOpener() {
         }
     });
     let videoID = parameters.get("id");
-    return (<Suspense >
+    return (<Suspense fallback={<div>Loading...</div>}>
         <div ref={ref2} className="frameDetails">
             <iframe ref={ref} key="fixed" src={"https://www.youtube.com/embed/" + videoID + `?rel="0"`} frameBorder="0" allowFullScreen={true} />
             <img></img>

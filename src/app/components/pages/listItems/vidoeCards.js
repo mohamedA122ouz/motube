@@ -17,7 +17,7 @@ export default function VideoCards({ currentID }) {
             updater(result);
         });
     }, [data]);
-    return <Suspense>
+    return <>
         {
             (function lister() {
                 let temp = [];
@@ -45,5 +45,5 @@ export default function VideoCards({ currentID }) {
                 }
             })()
         }
-    </Suspense>
+    </>
 }
